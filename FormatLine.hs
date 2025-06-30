@@ -22,10 +22,17 @@ lineLength :: Int
 lineLength = 30
 
 formatLine :: (Name, Price) -> String
-formatLine (name, price)
-   | length formatSt == lineLength = formatSt ++ "\n"
-   | otherwise = formatLine(name ++ ".", price) 
-     where formatSt = name ++ formatPence price
+formatLine (name, price) = name ++ replicate dotCount '.' ++ priceFm ++ "\n"
+  where
+    priceFm = formatPence price
+    dotCount = lineLength - length name - length priceFm
+
+
+  --  | length formatSt == lineLength = formatSt ++ "\n"
+  --  | otherwise = formatLine(name ++ ".", price) 
+  --    where formatSt = name ++ formatPence price
+
+
 
 formatLines :: [(Name, Price)] -> String
 formatLines items = concat [formatLine item | item <- items]

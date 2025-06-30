@@ -6,4 +6,4 @@
 
 
 elemNum :: Integer -> [Integer] -> Integer
-elemNum x xs = toInteger (length [n | n <- xs, x == n])
+elemNum x xs = sum [1 | n <- xs, x == n]

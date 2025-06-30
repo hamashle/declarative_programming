@@ -1,0 +1,1 @@
+mapFuns fs x = map (\f -> f x) fs

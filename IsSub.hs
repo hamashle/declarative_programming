@@ -5,9 +5,11 @@ isSublist (x:xs) (y:ys)
     | x == y = isSublist xs ys
     | otherwise = isSublist (x:xs) ys
 
-isSequence :: [Char] -> [Char] -> Bool
-isSequence [] _ = True
-isSequence (_:_) [] = False
-isSequence (x:xs) (y:ys) 
-    | x == y = isSequence xs ys
-    | otherwise = isSequence (x:xs) ys
+
+--isSequenceが間違っている。
+isSubsequence :: [Char] -> [Char] -> Bool
+isSubsequence [] _ = True
+isSubsequence (_:_) [] = False
+isSubsequence (x:xs) (y:ys) 
+    | x == y = isSubsequence xs ys
+    | otherwise = isSubsequence (x:xs) ys
